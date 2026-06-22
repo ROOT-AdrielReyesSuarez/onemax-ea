@@ -108,6 +108,9 @@ class ROOTSimulation:
             # Registrar fitness
             self.fitness_history.append(parent_fitness)
             
+        if is_frozen:
+            self.survival_times.append(current_st)
+            
         return self.survival_times
 
 if __name__ == '__main__':
