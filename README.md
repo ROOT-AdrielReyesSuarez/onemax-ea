@@ -44,10 +44,10 @@ Para la búsqueda de soluciones aceptables se utiliza un **Algoritmo Evolutivo $
 
 El sistema opera bajo una estricta separación de fases (Optimización vs. Despliegue):
 
-* **Umbral de Aceptabilidad ($\mu$):** Se fija una tolerancia del **80%**. Cualquier solución con un fitness $\ge 80$ (coincidencia en 80 o más bits con el óptimo actual) se considera **aceptable**.
-* **Congelamiento de Solución:** Tan pronto como el $(1+1)\text{-EA}$ encuentra una solución que cruza el umbral operativo del 80%, el proceso evolutivo se detiene y la solución se "despliega" de forma fija.
-* **Métrica Principal: Tiempo de Supervivencia (*Survival Time* - ST):** Mide de forma estricta el número de cambios de entorno consecutivos que la solución fija es capaz de soportar manteniéndose por encima del umbral de aceptabilidad operativo ($\ge 80\%$). 
-* **Muerte y Reactivación:** Si tras un cambio ambiental (mutación de $k$ bits del óptimo) el fitness de la solución fija cae a 79 o menos, la solución se declara "inaceptable" (muere). Se registra su Tiempo de Supervivencia y el algoritmo evolutivo se reactiva para encontrar una nueva solución válida en el nuevo entorno.
+* **Umbral de Aceptabilidad ($\mu$):** Se fija una tolerancia del **80%**. Cualquier solución con un fitness $\ge 80$ (coincidencia en 80 o más bits con el óptimo actual) se considera **aceptable** para la operación.
+* **Umbral de Congelamiento / Búsqueda ($\mu_{freeze}$):** Para dotar al sistema de un **margen de seguridad del 15%** contra perturbaciones, el proceso evolutivo no se detiene inmediatamente al cruzar el 80%, sino que continúa optimizando hasta alcanzar o superar un fitness del **95%** (95 bits). Una vez alcanzado, la solución se "despliega" de forma fija (congelamiento).
+* **Métrica Principal: Tiempo de Supervivencia (*Survival Time* - ST):** Mide el número de cambios de entorno consecutivos que la solución fija es capaz de soportar manteniéndose por encima del umbral de aceptabilidad operativo ($\ge 80\%$).
+* **Muerte y Reactivación:** Si tras un cambio ambiental (mutación de $k$ bits del óptimo) el fitness de la solución fija cae a 79 o menos, la solución muere. Se registra su Tiempo de Supervivencia y el algoritmo evolutivo se reactiva para encontrar una nueva solución que alcance nuevamente el umbral de congelamiento ($\ge 95\%$) en el entorno actual.
 
 ---
 
