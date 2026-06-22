@@ -27,7 +27,7 @@ En la Optimización Dinámica tradicional, el enfoque predominante es el **Segui
 ## 2. Especificación Técnica del Sistema
 
 ### A. El Entorno: OneMax Dinámico y Variable
-* **Cadena Óptima Objetivo ($O^*(t)$):** En $t=0$, el entorno genera un array de bits aleatorio de tamaño $n = 100$ que actúa como el óptimo actual.
+* **Cadena Óptima Objetivo ( $O^*(t)$ ):** En $t=0$, el entorno genera un array de bits aleatorio de tamaño $n = 100$ que actúa como el óptimo actual.
 * **Función de Fitness:** Mide la coincidencia posicional exacta con respecto al óptimo actual:
   $$f(X, t) = \sum_{i=1}^{n} [X[i] == O^*(t)[i]]$$
 * **Perturbación Ambiental:** El entorno cambia de forma discreta cada $F = 500$ iteraciones. En cada cambio, se sortea una fuerza de agresividad $k \sim U(1, K_{max})$ y se invierte el valor de $k$ bits aleatorios del vector óptimo $O^*(t)$, alterando instantáneamente el paisaje de fitness.
