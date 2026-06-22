@@ -114,13 +114,13 @@ pip install -r requirements.txt
 
 El proyecto está diseñado para poder ejecutarse por componentes de forma directa utilizando el intérprete de Python del entorno virtual:
 
-### Ejecutar Simulación Dinámica (Hito 3)
+### Ejecutar Simulación Dinámica
 Corre una simulación completa de 20 cambios de entorno con un log cronológico detallado en terminal:
 ```bash
 python -m src.simulation
 ```
 
-### Generar Gráficos de Resultados (Hito 4)
+### Generar Gráficos de Resultados
 Ejecuta la simulación micro y el experimento macro de análisis estadístico para generar los archivos gráficos PNG en la carpeta `plots/`:
 ```bash
 python -m src.visualization
