@@ -54,9 +54,6 @@ El código está organizado de manera modular, limpia y completamente probada:
 
 ```text
 onemax-ea/
-├── .agents/                    # Reglas internas del asistente
-│   └── rules/
-│       └── behavior-rules.md
 ├── plots/                      # Carpeta de salida de gráficos
 │   ├── fitness_over_time.png   # Comportamiento de fitness micro (dientes de sierra)
 │   └── survival_vs_kmax.png    # Análisis macro de ST promedio vs K_max
@@ -70,8 +67,7 @@ onemax-ea/
 │   ├── test_optimizer.py       # Pruebas de mutación y convergencia
 │   ├── test_simulation.py      # Pruebas de máquina de estados ROOT
 │   └── test_visualization.py   # Pruebas de integridad de archivos y exportación
-├── requirements.txt            # Dependencias del proyecto (numpy, matplotlib)
-└── TODO.md                     # Lista de tareas y control de hitos
+└── requirements.txt            # Dependencias del proyecto (numpy, matplotlib)
 ```
 
 ---
