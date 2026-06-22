@@ -5,7 +5,7 @@ from src.optimizer import OnePlusOneEA
 from src.simulation import ROOTSimulation
 
 def plot_fitness_over_time(history: list[int], acceptability_threshold: int = 80, 
-                           freeze_threshold: int = 95, filename: str = "fitness_over_time.png"):
+                           freeze_threshold: int = 95, filename: str = "plots/fitness_over_time.png"):
     """
     Genera y guarda el gráfico de la evolución del fitness a lo largo de las iteraciones.
     Muestra el comportamiento en 'dientes de sierra', indicando las mesetas de estabilidad
@@ -31,12 +31,15 @@ def plot_fitness_over_time(history: list[int], acceptability_threshold: int = 80
     plt.grid(True, linestyle=":", alpha=0.6)
     plt.legend(loc="lower right", fontsize=10)
     plt.tight_layout()
+    import os
+    if os.path.dirname(filename):
+        os.makedirs(os.path.dirname(filename), exist_ok=True)
     plt.savefig(filename, dpi=300)
     plt.close()
     print(f"Gráfico de fitness temporal guardado como: {filename}")
 
 def plot_survival_vs_kmax(k_max_list: list[int], mean_survivals: list[float], 
-                          filename: str = "survival_vs_kmax.png"):
+                          filename: str = "plots/survival_vs_kmax.png"):
     """
     Genera y guarda el gráfico del Tiempo de Supervivencia Promedio vs. K_max.
     Muestra cómo la agresividad de las perturbaciones influye en la longevidad de las soluciones.
@@ -52,6 +55,9 @@ def plot_survival_vs_kmax(k_max_list: list[int], mean_survivals: list[float],
     plt.xticks(k_max_list)
     plt.legend(fontsize=10)
     plt.tight_layout()
+    import os
+    if os.path.dirname(filename):
+        os.makedirs(os.path.dirname(filename), exist_ok=True)
     plt.savefig(filename, dpi=300)
     plt.close()
     print(f"Gráfico de longevidad vs agresividad guardado como: {filename}")
